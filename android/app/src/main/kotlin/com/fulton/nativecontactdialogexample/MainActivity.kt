@@ -1,4 +1,4 @@
-package com.example.contactsuiserviceexample
+package com.fulton.nativecontactdialogexample
 
 import android.os.Bundle
 
