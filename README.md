@@ -1,16 +1,36 @@
-# contacts_ui_service_example
+# Usage
 
-Demonstrates how to use the contacts_ui_service plugin.
+* No permissions are required for this plugin.
+* Requires **iOS 9** or above
 
-## Getting Started
+## Methods
 
-This project is a starting point for a Flutter application.
+``` dart
+class NativeContactDialog {
 
-A few resources to get you started if this is your first Flutter project:
+  static Future<String> addContact(Contact contact)
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
+}
+```
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Example - Adding a contact
+``` dart
+// import package
+import 'package:native_contact_dialog/native_contact_dialog.dart';
+
+// create a contact
+final contactToAdd = Contact(...args...);
+
+// open the native add contact dialog
+NativeContactDialog.addContact(contactToAdd).then((result) {
+    // NOTE: The user could cancel the dialog, but not add
+    // them to their addressbook. Whether or not the user decides
+    // to add [contactToAdd] to their addressbook, you will end up
+    // here.
+
+    print('add contact dialog closed.')
+}).catchError((error) {
+    // FlutterError, most likely unsupported operating system.
+    print('Error adding contact!');
+});
+```

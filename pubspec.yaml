@@ -1,5 +1,5 @@
-name: contacts_ui_service_example
-description: Demonstrates how to use the contacts_ui_service plugin.
+name: native_contact_dialog_example
+description: Demonstrates how to use the native_contact_dialog plugin.
 publish_to: 'none'
 
 environment:
