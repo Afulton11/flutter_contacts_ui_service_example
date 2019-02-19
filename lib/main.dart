@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'dart:async';
 import 'package:native_contact_dialog/native_contact_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,6 +24,19 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             ContactButton(),
+            Center(child: FlatButton.icon(
+              icon: Icon(Icons.insert_link, color: Colors.black87, size: 32,),
+              label: Text('Test Url_launcher', 
+                style: TextStyle(
+                  color: Colors.black87,
+                  // fontSize: 2,
+                ),
+              ),
+              color: Color(0xFF69F0AE),
+              onPressed: () {
+                launch('https://www.google.com/');
+              },
+            ),)
           ]
         ),
       ),
